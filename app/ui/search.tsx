@@ -23,13 +23,14 @@ export default function Search({ placeholder }: { placeholder: string }) {
     }, 300);
   */
     function handleSearch(term: string) {
-    const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set('query', term);
-    } else {
-      params.delete('query');
-    }
-    replace(`${pathname}?${params.toString()}`);
+      const params = new URLSearchParams(searchParams);
+      params.set('page', '1');
+      if (term) {
+        params.set('query', term);
+      } else {
+        params.delete('query');
+      }
+      replace(`${pathname}?${params.toString()}`);
     }
   
   
